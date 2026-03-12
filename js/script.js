@@ -125,13 +125,6 @@ requestAnimationFrame(animateCarousel)
 
 animateCarousel()
 
-/* SUPORTE PARA CELULAR */
-
-wrapper.addEventListener("touchmove",(e)=>{
-
-const rect = wrapper.getBoundingClientRect()
-const x = e.touches[0].clientX - rect.left
-const center = rect.width / 2
 
 /* SUPORTE TOUCH PARA CELULAR */
 
@@ -200,4 +193,5 @@ closeModal()
 }
 
 })
+
 
