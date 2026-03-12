@@ -371,6 +371,7 @@ background:#0f0f0f;
 .carousel-wrapper{
 overflow:hidden;
 margin-top:40px;
+touch-action:pan-y;
 }
 
 .event-grid{
@@ -661,5 +662,6 @@ height:160px;
 }
 
 }
+
 
 
