@@ -76,24 +76,85 @@ function toggleMenu(){
 document.querySelector(".menu").classList.toggle("active")
 }
 
-/* CARROSSEL INFINITO */
+/* ============================= */
+/* CARROSSEL INFINITO SUAVE */
+/* ============================= */
 
 const wrapper = document.getElementById("carouselWrapper")
 const carousel = document.getElementById("eventCarousel")
 
-// DUPLICA OS CARDS
+// duplica cards para criar loop infinito
 carousel.innerHTML += carousel.innerHTML
 
 let position = 0
 let speed = 0
 
+let isDragging = false
+let startX = 0
+let startPosition = 0
+
+/* MOUSE DESKTOP */
+
+wrapper.addEventListener("mousedown",(e)=>{
+
+isDragging = true
+startX = e.clientX
+startPosition = position
+speed = 0
+
+})
+
 wrapper.addEventListener("mousemove",(e)=>{
+
+if(!isDragging) return
+
+const diff = startX - e.clientX
+position = startPosition + diff
+
+})
+
+wrapper.addEventListener("mouseup",()=>{
+isDragging = false
+})
+
+wrapper.addEventListener("mouseleave",()=>{
+isDragging = false
+})
+
+/* TOUCH CELULAR */
+
+wrapper.addEventListener("touchstart",(e)=>{
+
+isDragging = true
+startX = e.touches[0].clientX
+startPosition = position
+speed = 0
+
+})
+
+wrapper.addEventListener("touchmove",(e)=>{
+
+if(!isDragging) return
+
+const diff = startX - e.touches[0].clientX
+position = startPosition + diff
+
+})
+
+wrapper.addEventListener("touchend",()=>{
+isDragging = false
+})
+
+/* MOVIMENTO AUTOMÁTICO COM MOUSE */
+
+wrapper.addEventListener("mousemove",(e)=>{
+
+if(isDragging) return
 
 const rect = wrapper.getBoundingClientRect()
 const x = e.clientX - rect.left
 const center = rect.width / 2
 
-// controla direção e velocidade
 speed = (x - center) * 0.02
 
 })
@@ -102,13 +163,16 @@ wrapper.addEventListener("mouseleave",()=>{
 speed = 0
 })
 
+/* ANIMAÇÃO */
+
 function animateCarousel(){
 
+if(!isDragging){
 position += speed
+}
 
 const max = carousel.scrollWidth / 2
 
-// LOOP INFINITO CORRIGIDO
 if(position > max){
 position -= max
 }
@@ -124,43 +188,6 @@ requestAnimationFrame(animateCarousel)
 }
 
 animateCarousel()
-
-
-/* SUPORTE TOUCH PARA CELULAR */
-
-let touchStartX = 0
-
-wrapper.addEventListener("touchstart",(e)=>{
-
-const rect = wrapper.getBoundingClientRect()
-touchStartX = e.touches[0].clientX - rect.left
-
-})
-
-wrapper.addEventListener("touchmove",(e)=>{
-
-const rect = wrapper.getBoundingClientRect()
-const x = e.touches[0].clientX - rect.left
-const center = rect.width / 2
-
-speed = (x - center) * 0.02
-
-})
-
-wrapper.addEventListener("touchend",()=>{
-
-speed = 0
-
-})
-  
-// controle de direção e velocidade
-speed = (x - center) * 0.02
-
-})
-
-wrapper.addEventListener("touchend",()=>{
-speed = 0
-})
 
 /* MODAL */
 
@@ -193,114 +220,5 @@ closeModal()
 }
 
 })
-/* CARROSSEL INFINITO SUAVE */
-
-const wrapper = document.getElementById("carouselWrapper")
-const carousel = document.getElementById("eventCarousel")
-
-// DUPLICA OS CARDS
-carousel.innerHTML += carousel.innerHTML
-
-let position = 0
-let speed = 0
-
-let isDragging = false
-let startX = 0
-let startPosition = 0
-
-/* MOUSE */
-
-wrapper.addEventListener("mousedown",(e)=>{
-
-isDragging = true
-startX = e.clientX
-startPosition = position
-speed = 0
-
-})
-
-wrapper.addEventListener("mousemove",(e)=>{
-
-if(!isDragging) return
-
-const diff = startX - e.clientX
-position = startPosition + diff
-
-})
-
-wrapper.addEventListener("mouseup",()=>{
-isDragging = false
-})
-
-wrapper.addEventListener("mouseleave",()=>{
-isDragging = false
-})
-
-/* TOUCH */
-
-wrapper.addEventListener("touchstart",(e)=>{
-
-isDragging = true
-startX = e.touches[0].clientX
-startPosition = position
-speed = 0
-
-})
-
-wrapper.addEventListener("touchmove",(e)=>{
-
-if(!isDragging) return
-
-const diff = startX - e.touches[0].clientX
-position = startPosition + diff
-
-})
-
-wrapper.addEventListener("touchend",()=>{
-isDragging = false
-})
-
-/* MOVIMENTO AUTOMÁTICO */
-
-wrapper.addEventListener("mousemove",(e)=>{
-
-if(isDragging) return
-
-const rect = wrapper.getBoundingClientRect()
-const x = e.clientX - rect.left
-const center = rect.width / 2
-
-speed = (x - center) * 0.02
-
-})
-
-wrapper.addEventListener("mouseleave",()=>{
-speed = 0
-})
-
-function animateCarousel(){
-
-if(!isDragging){
-position += speed
-}
-
-const max = carousel.scrollWidth / 2
-
-if(position > max){
-position -= max
-}
-
-if(position < 0){
-position += max
-}
-
-carousel.style.transform = `translateX(-${position}px)`
-
-requestAnimationFrame(animateCarousel)
-
-}
-
-animateCarousel()
-
 
 
