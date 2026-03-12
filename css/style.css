@@ -47,42 +47,29 @@ list-style:none;
 }
 
 .menu a{
-
 color:white;
 text-decoration:none;
 font-weight:bold;
 font-size:16px;
-
 position:relative;
-
 padding:5px 0;
-
-transition:0.3s;
-
+transition:.3s;
 }
 
-/* LINHA */
+/* LINHA MENU */
 
 .menu a::after{
-
 content:"";
-
 position:absolute;
-
 left:0;
 bottom:-6px;
-
 width:0%;
 height:2px;
-
 background:#09ff00;
-
 box-shadow:
 0 0 10px #09ff00,
 0 0 20px #09ff00;
-
-transition:0.35s;
-
+transition:.35s;
 }
 
 .menu a:hover{
@@ -93,7 +80,7 @@ color:#09ff00;
 width:100%;
 }
 
-/* BOTÃO MOBILE */
+/* BOTÃO HAMBURGUER */
 
 .menu-toggle{
 display:none;
@@ -101,44 +88,33 @@ font-size:30px;
 cursor:pointer;
 }
 
-/* RESPONSIVO */
+/* RESPONSIVO MENU */
 
 @media (max-width:900px){
 
-/* ESCONDE MENU NORMAL */
-
 .menu{
-display:none;
-
 position:absolute;
 top:80px;
 right:0;
-
 background:#000;
-
 flex-direction:column;
-
 width:220px;
-
 padding:30px;
+gap:20px;
 
+transform:translateX(100%);
+transition:.4s;
 }
-
-/* MOSTRA MENU QUANDO ATIVO */
 
 .menu.active{
-display:flex;
+transform:translateX(0);
 }
-
-/* MOSTRA BOTÃO HAMBURGUER */
 
 .menu-toggle{
 display:block;
 }
 
 }
-
-
 
 /* SLIDER */
 
@@ -166,10 +142,6 @@ pointer-events:none;
 
 .slide.active{
 opacity:1;
-}
-
-.slide.active{
-opacity:1;
 pointer-events:auto;
 }
 
@@ -183,36 +155,28 @@ margin-bottom:10px;
 .slide-btn,
 .event-btn,
 .community-btn{
-
 margin-top:20px;
 padding:12px 30px;
-
 background:#09ff00;
 color:black;
-
 font-weight:bold;
 text-decoration:none;
-
 display:inline-block;
 cursor:pointer;
-
 border:none;
 
 box-shadow:
 0 0 10px #09ff00,
 0 0 20px #09ff00;
 
-transition:transform .25s ease, box-shadow .25s ease;
-
+transition:transform .25s, box-shadow .25s;
 }
-
-/* ANIMAÇÃO PADRÃO PARA TODOS OS BOTÕES */
 
 .slide-btn:hover,
 .event-btn:hover,
 .community-btn:hover{
 
-transform:scale(1.12);
+transform:scale(1.1);
 
 box-shadow:
 0 0 25px #09ff00,
@@ -220,77 +184,46 @@ box-shadow:
 
 }
 
-/* OUTROS BOTÕES */
-
-.event-btn:hover,
-.community-btn:hover{
-
-transform:scale(1.1);
-
-box-shadow:
-0 0 20px #09ff00,
-0 0 40px #09ff00;
-
-}
-
-/* SETAS */
+/* SETAS SLIDER */
 
 .arrow{
-
 position:absolute;
 top:50%;
 transform:translateY(-50%);
-
 width:50px;
 height:50px;
-
 display:flex;
 align-items:center;
 justify-content:center;
-
 cursor:pointer;
-
 opacity:0;
-transition:opacity .3s, transform .2s;
-
+transition:.3s;
 }
 
 .arrow svg{
-
 stroke:white;
 stroke-width:2;
 fill:none;
-
 transition:.25s;
-
 }
 
 .arrow:hover svg{
-
 stroke:#09ff00;
-
 }
 
-/* POSIÇÃO */
-
-.arrow-left{
-left:20px;
-}
-
-.arrow-right{
-right:20px;
-}
-
-/* APARECER SOMENTE NO HOVER */
+.arrow-left{left:20px;}
+.arrow-right{right:20px;}
 
 .slider:hover .arrow{
 opacity:1;
 }
 
-/* EFEITO AO PASSAR O MOUSE */
+/* CELULAR MOSTRA SETAS */
 
-.arrow:hover{
-transform:translateY(-50%) scale(1.1);
+@media (max-width:900px){
+.arrow{
+opacity:1;
+}
 }
 
 /* SECTION */
@@ -298,6 +231,8 @@ transform:translateY(-50%) scale(1.1);
 .section{
 padding:70px 10%;
 text-align:center;
+max-width:1400px;
+margin:auto;
 }
 
 /* GAMES */
@@ -313,30 +248,16 @@ gap:30px;
 background:#161616;
 padding:30px;
 border-radius:10px;
-transition:transform .3s;
-}
-
-.game{
-
-background:#161616;
-padding:30px;
-border-radius:10px;
-
 transition:.3s;
-
 box-shadow:0 10px 25px rgba(0,0,0,0.6);
-
 }
 
 .game:hover{
-
 transform:scale(1.05);
-
 box-shadow:
 0 0 10px #09ff00,
 0 0 20px #09ff00,
 0 0 40px #09ff00;
-
 }
 
 .game-title{
@@ -355,11 +276,8 @@ transition:.3s;
 }
 
 .game:hover .game-icon{
-
 transform:scale(1.15);
-
 filter:drop-shadow(0 0 6px #09ff00);
-
 }
 
 /* EVENTOS */
@@ -377,6 +295,7 @@ touch-action:pan-y;
 .event-grid{
 display:flex;
 gap:40px;
+will-change:transform;
 }
 
 .event-card{
@@ -465,13 +384,7 @@ border-radius:6px;
 margin-bottom:20px;
 }
 
-.modal-price{
-font-size:22px;
-font-weight:bold;
-color:#09ff00;
-margin-top:10px;
-}
-
+.modal-price,
 .modal-time{
 font-size:22px;
 font-weight:bold;
@@ -508,7 +421,7 @@ margin-bottom:30px;
 
 .community-images{
 display:grid;
-grid-template-columns:repeat(3,1fr);
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
 gap:20px;
 }
 
@@ -522,14 +435,11 @@ box-shadow:0 10px 25px rgba(0,0,0,0.6);
 }
 
 .community-images img:hover{
-
 transform:scale(1.05);
-
 box-shadow:
 0 0 10px #09ff00,
 0 0 20px #09ff00,
 0 0 40px #09ff00;
-
 }
 
 /* FOOTER */
@@ -541,92 +451,50 @@ text-align:center;
 margin-top:40px;
 }
 
-/* ============================= */
-/* RESPONSIVO TABLET E CELULAR */
-/* ============================= */
+/* RESPONSIVO */
 
 @media (max-width:900px){
 
-/* SLIDER */
+.slider{height:360px;}
 
-.slider{
-height:360px;
-}
-
-.slide h1{
-font-size:32px;
-}
+.slide h1{font-size:32px;}
 
 .slide p{
 font-size:14px;
 padding:0 20px;
 }
 
-/* GAMES */
-
 .games{
 grid-template-columns:repeat(2,1fr);
 gap:20px;
 }
 
-/* EVENTOS */
+.event-card{min-width:260px;}
 
-.event-card{
-min-width:260px;
-}
+.event-image{height:180px;}
 
-.event-image{
-height:180px;
-}
-
-.event-date{
-font-size:26px;
-}
-
-/* COMUNIDADE */
+.event-date{font-size:26px;}
 
 .community{
 flex-direction:column;
 text-align:center;
 }
 
-.community-text{
-max-width:100%;
-}
-
-.community-images{
-grid-template-columns:repeat(2,1fr);
-}
+.community-text{max-width:100%;}
 
 }
 
-/* ============================= */
-/* CELULARES PEQUENOS */
-/* ============================= */
+/* CELULAR PEQUENO */
 
 @media (max-width:500px){
 
-/* NAV */
+nav{padding:20px 6%;}
 
-nav{
-padding:20px 6%;
-}
+.slider{height:300px;}
 
-/* SLIDER */
+.slide h1{font-size:24px;}
 
-.slider{
-height:300px;
-}
-
-.slide h1{
-font-size:24px;
-}
-
-.slide p{
-font-size:13px;
-}
-
-/* BOTÕES */
+.slide p{font-size:13px;}
 
 .slide-btn,
 .event-btn,
@@ -635,26 +503,16 @@ padding:10px 20px;
 font-size:14px;
 }
 
-/* JOGOS */
-
 .games{
 grid-template-columns:1fr;
 }
-
-/* EVENTOS */
 
 .event-card{
 min-width:220px;
 }
 
-/* COMUNIDADE */
-
 .community{
 padding:60px 6%;
-}
-
-.community-images{
-grid-template-columns:1fr;
 }
 
 .community-images img{
@@ -662,6 +520,3 @@ height:160px;
 }
 
 }
-
-
-
