@@ -9,6 +9,9 @@ body{
 background:#0c0c0c;
 color:white;
 overflow-x:hidden;
+
+-webkit-font-smoothing:antialiased;
+-moz-osx-font-smoothing:grayscale;
 }
 
 /* PARTICULAS */
@@ -44,6 +47,7 @@ height:50px;
 display:flex;
 gap:35px;
 list-style:none;
+z-index:100;
 }
 
 .menu a{
@@ -56,7 +60,7 @@ padding:5px 0;
 transition:.3s;
 }
 
-/* LINHA MENU */
+/* LINHA */
 
 .menu a::after{
 content:"";
@@ -80,7 +84,7 @@ color:#09ff00;
 width:100%;
 }
 
-/* BOTÃO HAMBURGUER */
+/* HAMBURGUER */
 
 .menu-toggle{
 display:none;
@@ -88,7 +92,7 @@ font-size:30px;
 cursor:pointer;
 }
 
-/* RESPONSIVO MENU */
+/* MOBILE MENU */
 
 @media (max-width:900px){
 
@@ -133,11 +137,15 @@ flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
+
 background-size:cover;
 background-position:center;
-transition:opacity 1s;
+
 opacity:0;
 pointer-events:none;
+
+transition:opacity .8s ease;
+will-change:opacity;
 }
 
 .slide.active{
@@ -155,12 +163,16 @@ margin-bottom:10px;
 .slide-btn,
 .event-btn,
 .community-btn{
+
 margin-top:20px;
 padding:12px 30px;
+
 background:#09ff00;
 color:black;
+
 font-weight:bold;
 text-decoration:none;
+
 display:inline-block;
 cursor:pointer;
 border:none;
@@ -171,6 +183,8 @@ box-shadow:
 
 transition:transform .25s, box-shadow .25s;
 }
+
+@media (hover:hover){
 
 .slide-btn:hover,
 .event-btn:hover,
@@ -184,20 +198,28 @@ box-shadow:
 
 }
 
-/* SETAS SLIDER */
+}
+
+/* SETAS */
 
 .arrow{
+
 position:absolute;
 top:50%;
 transform:translateY(-50%);
+
 width:50px;
 height:50px;
+
 display:flex;
 align-items:center;
 justify-content:center;
+
 cursor:pointer;
 opacity:0;
+
 transition:.3s;
+
 }
 
 .arrow svg{
@@ -218,7 +240,7 @@ stroke:#09ff00;
 opacity:1;
 }
 
-/* CELULAR MOSTRA SETAS */
+/* MOBILE SETAS */
 
 @media (max-width:900px){
 .arrow{
@@ -248,16 +270,23 @@ gap:30px;
 background:#161616;
 padding:30px;
 border-radius:10px;
+
 transition:.3s;
+
 box-shadow:0 10px 25px rgba(0,0,0,0.6);
 }
 
+@media (hover:hover){
+
 .game:hover{
 transform:scale(1.05);
+
 box-shadow:
 0 0 10px #09ff00,
 0 0 20px #09ff00,
 0 0 40px #09ff00;
+}
+
 }
 
 .game-title{
@@ -293,18 +322,30 @@ touch-action:pan-y;
 }
 
 .event-grid{
+
 display:flex;
 gap:40px;
+
 will-change:transform;
+
+transform:translateZ(0);
+
 }
 
 .event-card{
+
 min-width:320px;
+
 background:#161616;
+
 border-radius:10px;
+
 overflow:hidden;
+
 border:1px solid #222;
+
 transition:.3s;
+
 }
 
 .event-card:hover{
@@ -337,7 +378,6 @@ line-height:1.6;
 }
 
 .event-btn{
-display:inline-block;
 padding:14px 30px;
 border:2px solid #09ff00;
 }
@@ -345,26 +385,40 @@ border:2px solid #09ff00;
 /* MODAL */
 
 .modal-overlay{
+
 position:fixed;
 top:0;
 left:0;
+
 width:100%;
 height:100%;
+
 background:rgba(0,0,0,.85);
+
 display:none;
+
 align-items:center;
 justify-content:center;
+
 z-index:999;
+
 }
 
 .modal{
+
 background:#111;
+
 border:1px solid #09ff00;
+
 border-radius:10px;
+
 max-width:700px;
 width:90%;
+
 padding:30px;
+
 position:relative;
+
 }
 
 .modal-close{
@@ -395,13 +449,20 @@ margin-top:10px;
 /* COMUNIDADE */
 
 .community{
+
 background:#111;
+
 padding:90px 10%;
+
 display:flex;
+
 align-items:center;
 justify-content:space-between;
+
 gap:60px;
+
 flex-wrap:wrap;
+
 }
 
 .community-text{
@@ -420,35 +481,53 @@ margin-bottom:30px;
 }
 
 .community-images{
+
 display:grid;
+
 grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+
 gap:20px;
+
 }
 
 .community-images img{
+
 width:100%;
 height:200px;
+
 object-fit:cover;
+
 border-radius:10px;
+
 transition:.3s;
+
 box-shadow:0 10px 25px rgba(0,0,0,0.6);
+
 }
 
 .community-images img:hover{
+
 transform:scale(1.05);
+
 box-shadow:
 0 0 10px #09ff00,
 0 0 20px #09ff00,
 0 0 40px #09ff00;
+
 }
 
 /* FOOTER */
 
 footer{
+
 background:#000;
+
 padding:40px;
+
 text-align:center;
+
 margin-top:40px;
+
 }
 
 /* RESPONSIVO */
@@ -480,21 +559,31 @@ flex-direction:column;
 text-align:center;
 }
 
-.community-text{max-width:100%;}
+.community-text{
+max-width:100%;
+}
 
 }
 
-/* CELULAR PEQUENO */
+/* CELULAR */
 
 @media (max-width:500px){
 
-nav{padding:20px 6%;}
+nav{
+padding:20px 6%;
+}
 
-.slider{height:300px;}
+.slider{
+height:300px;
+}
 
-.slide h1{font-size:24px;}
+.slide h1{
+font-size:24px;
+}
 
-.slide p{font-size:13px;}
+.slide p{
+font-size:13px;
+}
 
 .slide-btn,
 .event-btn,
