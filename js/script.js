@@ -72,6 +72,10 @@ menu.classList.toggle("active")
 
 }
 
+function toggleMenu(){
+document.querySelector(".menu").classList.toggle("active")
+}
+
 /* CARROSSEL INFINITO */
 
 const wrapper = document.getElementById("carouselWrapper")
@@ -167,4 +171,5 @@ modal.addEventListener("click",(e)=>{
 if(e.target===modal){
 closeModal()
 }
+
 })
