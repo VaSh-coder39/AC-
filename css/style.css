@@ -105,10 +105,12 @@ cursor:pointer;
 
 @media (max-width:900px){
 
+/* ESCONDE MENU NORMAL */
+
 .menu{
+display:none;
 
 position:absolute;
-
 top:80px;
 right:0;
 
@@ -120,21 +122,23 @@ width:220px;
 
 padding:30px;
 
-transform:translateX(100%);
-
-transition:0.4s;
-
 }
+
+/* MOSTRA MENU QUANDO ATIVO */
 
 .menu.active{
-transform:translateX(0);
+display:flex;
 }
+
+/* MOSTRA BOTÃO HAMBURGUER */
 
 .menu-toggle{
 display:block;
 }
 
 }
+
+
 
 /* SLIDER */
 
@@ -657,4 +661,5 @@ height:160px;
 }
 
 }
+
 
