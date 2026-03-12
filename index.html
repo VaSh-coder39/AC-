@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Arte em Cards</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<canvas id="particles"></canvas>
+
+<nav>
+
+<div class="logo">
+<img src="images/logo.png">
+</div>
+
+<div class="menu-toggle" onclick="toggleMenu()">
+☰
+</div>
+
+<ul class="menu">
+
+<li><a href="#">Eventos</a></li>
+<li><a href="#">Calendário</a></li>
+<li><a href="https://mypcards.com/arteemcards">Loja</a></li>
+<li><a href="#">Contato</a></li>
+
+</ul>
+
+</nav>
+
+
+<section class="slider">
+
+<div class="slide active" style="background-image:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),url('https://as1.ftcdn.net/jpg/05/03/59/44/1000_F_503594483_3NchSiBE5KiSVFDpxKPGYFNBFYiOhNQ1.jpg');">
+
+<h1>Loja MypeCards</h1>
+<p>Compre suas cartas e melhore suas estrategias</p>
+
+<a href="https://mypcards.com/arteemcards" target="_blank" class="slide-btn">
+COMPRAR
+</a>
+
+</div>
+
+
+<div class="slide" style="background-image:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),url('https://asia.pokemon-card.com/my/wp-content/uploads/sites/6/2025/01/my_top_banner_showdown2025.jpg');">
+
+<h1>TORNEIOS SEMANAIS</h1>
+<p>Pokémon • Digimon • Lorcana • Gundam • One piece • Riftbond • Magic • Dragon Ball</p>
+
+<a href="#eventos" class="slide-btn">
+VER EVENTOS
+</a>
+
+</div>
+
+
+<div class="slide" style="background-image:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),url('https://i.cbc.ca/ais/1.7483189,1741898784000/full/max/0/default.jpg?im=Crop%2Crect%3D%280%2C0%2C4821%2C3214%29%3B');">
+
+<h1>COMUNIDADE ARTE EM CARDS</h1>
+<p>Venha jogar, trocar cartas e fazer parte da familia Arte em Cards</p>
+
+<a href="https://chat.whatsapp.com/KzFMZUFvsVmIuQ4LkcL8C9" target="_blank" class="slide-btn">
+PARTICIPAR
+</a>
+
+</div>
+
+<div class="arrow arrow-left" onclick="prevSlide()">
+<svg width="28" height="28" viewBox="0 0 24 24">
+<path d="M15 6l-6 6 6 6"/>
+</svg>
+</div>
+
+<div class="arrow arrow-right" onclick="nextSlide()">
+<svg width="28" height="28" viewBox="0 0 24 24">
+<path d="M9 6l6 6-6 6"/>
+</svg>
+</div>
+
+</section>
+
+
+<section class="section">
+
+<h2>Nossos Jogos</h2>
+
+<div class="games">
+
+<div class="game">
+<div class="game-title">
+<img src="icons/pokemon.png" class="game-icon">
+<h3>Pokémon TCG</h3>
+</div>
+<p>Treine e batalhe com seus Pokémon favoritos.</p>
+</div>
+
+<div class="game">
+<div class="game-title">
+<img src="icons/digimon.png" class="game-icon">
+<h3>Digimon Card Game</h3>
+</div>
+<p>Evolua seus Digimons e vença com estratégia.</p>
+</div>
+
+<div class="game">
+<div class="game-title">
+<img src="icons/onepiece.png" class="game-icon">
+<h3>One Piece Card Game</h3>
+</div>
+<p>Monte sua tripulação e domine o Grand Line.</p>
+</div>
+
+<div class="game">
+<div class="game-title">
+<img src="icons/lorcana.png" class="game-icon">
+<h3>Lorcana</h3>
+</div>
+<p>Descubra o universo Disney Lorcana.</p>
+</div>
+
+<div class="game">
+<div class="game-title">
+<img src="icons/magic.png" class="game-icon">
+<h3>Magic: The Gathering</h3>
+</div>
+<p>Convoque criaturas e domine o multiverso.</p>
+</div>
+
+<div class="game">
+<div class="game-title">
+<img src="icons/gundam.png" class="game-icon">
+<h3>Gundam Card Game</h3>
+</div>
+<p>Comande seus mobile suits na batalha.</p>
+</div>
+
+<div class="game">
+<div class="game-title">
+<img src="icons/riftbound.png" class="game-icon">
+<h3>Riftbound</h3>
+</div>
+<p>Explore novas estratégias e universos.</p>
+</div>
+
+<div class="game">
+<div class="game-title">
+<img src="icons/DBZ.png" class="game-icon">
+<h3>Dragon Ball Fusion World</h3>
+</div>
+<p>Junte-se aos guerreiros Z e lidere o campo de batalha.</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- EVENTOS -->
+
+<section class="section events">
+
+<h2>Programação semanal</h2>
+
+<div class="carousel-wrapper" id="carouselWrapper">
+<div class="event-grid" id="eventCarousel">
+
+<div class="event-card">
+<img src="images/event1.jpg" class="event-image">
+<div class="event-content">
+<div class="event-date">SEGUNDA</div>
+<p class="event-desc">Magic e jogos livres</p>
+
+<a class="event-btn"
+onclick="openModal(
+'Segunda - Magic',
+'images/event1.jpg',
+'Casual de Magic e Commander com espaço para jogos livres.',
+'Inscrição: Gratuita',
+'Horário: 15:00'
+)">
+DETALHES
+</a>
+
+</div>
+</div>
+
+
+<div class="event-card">
+<img src="images/event2.jpg" class="event-image">
+<div class="event-content">
+<div class="event-date">TERÇA</div>
+<p class="event-desc">One piece e jogos livres</p>
+
+<a class="event-btn"
+onclick="openModal(
+'Terça - One Piece',
+'images/event2.jpg',
+'Torneio semanal de One Piece Card Game, o horário dos torneios pode variar de acordo com o número de inscritos.',
+'Inscrição: R$20',
+'Horário: 19:00'
+)">
+DETALHES
+</a>
+
+</div>
+</div>
+
+
+<div class="event-card">
+<img src="images/event3.jpg" class="event-image">
+<div class="event-content">
+<div class="event-date">QUARTA</div>
+<p class="event-desc">Riftbound e Lorcana</p>
+
+<a class="event-btn"
+onclick="openModal(
+'Quarta - Riftbound e Lorcana',
+'images/event3.jpg',
+'Eventos alternados desses dois jogos, o horário dos torneios pode variar de acordo com o número de inscritos.',
+'Inscrição: R$20',
+'Horário: 19:00'
+)">
+DETALHES
+</a>
+
+</div>
+</div>
+
+
+<div class="event-card">
+<img src="images/event4.jpg" class="event-image">
+<div class="event-content">
+<div class="event-date">QUINTA</div>
+<p class="event-desc">Digimon e Gundam</p>
+
+<a class="event-btn"
+onclick="openModal(
+'Quinta - Digimon e Gundam',
+'images/event4.jpg',
+'Torneios competitivos semanais, o horário dos torneios pode variar de acordo com o número de inscritos.',
+'Inscrição: R$20',
+'Horário: 19:00'
+)">
+DETALHES
+</a>
+
+</div>
+</div>
+
+
+<div class="event-card">
+<img src="images/event5.png" class="event-image">
+<div class="event-content">
+<div class="event-date">SEXTA</div>
+<p class="event-desc">Pokémon e jogos livres</p>
+
+<a class="event-btn"
+onclick="openModal(
+'Sexta - Pokémon',
+'images/event5.png',
+'Liga Pokémon com premiação.',
+'Inscrição: R$10',
+'Horário: 18:00'
+)">
+DETALHES
+</a>
+
+</div>
+</div>
+
+
+<div class="event-card">
+<img src="images/event6.jpeg" class="event-image">
+<div class="event-content">
+<div class="event-date">SÁBADO</div>
+<p class="event-desc">Jogos livres</p>
+
+<a class="event-btn"
+onclick="openModal(
+'Sábado - Free Play',
+'images/event6.jpeg',
+'Dia aberto para qualquer jogo, traga seus amigos e venha se divertir com jogos variados.',
+'Inscrição: Gratuita',
+'Horário: 15:00 às 21:00'
+)">
+DETALHES
+</a>
+
+</div>
+</div>
+
+</div>
+</div>
+
+</section>
+
+<!-- MODAL EVENTOS -->
+
+<div class="modal-overlay" id="eventModal">
+
+<div class="modal">
+
+<span class="modal-close" onclick="closeModal()">✕</span>
+
+<img id="modalImage">
+
+<h3 id="modalTitle"></h3>
+
+<p id="modalDesc"></p>
+
+<div class="modal-price" id="modalPrice"></div>
+
+<div class="modal-time" id="modalTime"></div>
+
+</div>
+
+</div>
+
+<!-- COMUNIDADE -->
+
+<section class="community">
+
+<div class="community-text">
+<h2>Nossa comunidade é o coração da Arte em Cards</h2>
+<p>Na Arte em cards você não encontra só cartas — encontra amigos.
+Aqui cada jogador é bem-vindo, seja iniciante ou veterano.
+Nossa comunidade compartilha estratégias e torna cada evento uma experiência divertida.</p>
+
+<a href="https://www.instagram.com/arteemcards/" target="_blank" class="community-btn">
+Nosso Instagram
+</a>
+
+</div>
+
+<div class="community-images">
+<img src="images/comunidade1.png">
+<img src="images/comunidade2.png">
+<img src="images/comunidade3.png">
+<img src="images/comunidade4.png">
+<img src="images/comunidade5.png">
+<img src="images/comunidade6.png">
+</div>
+
+</section>
+
+<footer>
+
+<p>© Arte em Cards</p>
+
+</footer>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>
