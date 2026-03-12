@@ -535,3 +535,126 @@ padding:40px;
 text-align:center;
 margin-top:40px;
 }
+
+/* ============================= */
+/* RESPONSIVO TABLET E CELULAR */
+/* ============================= */
+
+@media (max-width:900px){
+
+/* SLIDER */
+
+.slider{
+height:360px;
+}
+
+.slide h1{
+font-size:32px;
+}
+
+.slide p{
+font-size:14px;
+padding:0 20px;
+}
+
+/* GAMES */
+
+.games{
+grid-template-columns:repeat(2,1fr);
+gap:20px;
+}
+
+/* EVENTOS */
+
+.event-card{
+min-width:260px;
+}
+
+.event-image{
+height:180px;
+}
+
+.event-date{
+font-size:26px;
+}
+
+/* COMUNIDADE */
+
+.community{
+flex-direction:column;
+text-align:center;
+}
+
+.community-text{
+max-width:100%;
+}
+
+.community-images{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+/* ============================= */
+/* CELULARES PEQUENOS */
+/* ============================= */
+
+@media (max-width:500px){
+
+/* NAV */
+
+nav{
+padding:20px 6%;
+}
+
+/* SLIDER */
+
+.slider{
+height:300px;
+}
+
+.slide h1{
+font-size:24px;
+}
+
+.slide p{
+font-size:13px;
+}
+
+/* BOTÕES */
+
+.slide-btn,
+.event-btn,
+.community-btn{
+padding:10px 20px;
+font-size:14px;
+}
+
+/* JOGOS */
+
+.games{
+grid-template-columns:1fr;
+}
+
+/* EVENTOS */
+
+.event-card{
+min-width:220px;
+}
+
+/* COMUNIDADE */
+
+.community{
+padding:60px 6%;
+}
+
+.community-images{
+grid-template-columns:1fr;
+}
+
+.community-images img{
+height:160px;
+}
+
+}
+
