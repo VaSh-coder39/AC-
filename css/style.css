@@ -555,16 +555,18 @@ margin-bottom:30px;
 
 display:grid;
 
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+grid-template-columns:repeat(2,1fr);
 
-gap:20px;
+gap:30px;
+
+max-width:700px;
 
 }
 
 .community-images img{
 
 width:100%;
-height:200px;
+height:260px;
 
 object-fit:cover;
 
@@ -680,3 +682,4 @@ height:160px;
 }
 
 }
+
