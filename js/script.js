@@ -193,5 +193,114 @@ closeModal()
 }
 
 })
+/* CARROSSEL INFINITO SUAVE */
+
+const wrapper = document.getElementById("carouselWrapper")
+const carousel = document.getElementById("eventCarousel")
+
+// DUPLICA OS CARDS
+carousel.innerHTML += carousel.innerHTML
+
+let position = 0
+let speed = 0
+
+let isDragging = false
+let startX = 0
+let startPosition = 0
+
+/* MOUSE */
+
+wrapper.addEventListener("mousedown",(e)=>{
+
+isDragging = true
+startX = e.clientX
+startPosition = position
+speed = 0
+
+})
+
+wrapper.addEventListener("mousemove",(e)=>{
+
+if(!isDragging) return
+
+const diff = startX - e.clientX
+position = startPosition + diff
+
+})
+
+wrapper.addEventListener("mouseup",()=>{
+isDragging = false
+})
+
+wrapper.addEventListener("mouseleave",()=>{
+isDragging = false
+})
+
+/* TOUCH */
+
+wrapper.addEventListener("touchstart",(e)=>{
+
+isDragging = true
+startX = e.touches[0].clientX
+startPosition = position
+speed = 0
+
+})
+
+wrapper.addEventListener("touchmove",(e)=>{
+
+if(!isDragging) return
+
+const diff = startX - e.touches[0].clientX
+position = startPosition + diff
+
+})
+
+wrapper.addEventListener("touchend",()=>{
+isDragging = false
+})
+
+/* MOVIMENTO AUTOMÁTICO */
+
+wrapper.addEventListener("mousemove",(e)=>{
+
+if(isDragging) return
+
+const rect = wrapper.getBoundingClientRect()
+const x = e.clientX - rect.left
+const center = rect.width / 2
+
+speed = (x - center) * 0.02
+
+})
+
+wrapper.addEventListener("mouseleave",()=>{
+speed = 0
+})
+
+function animateCarousel(){
+
+if(!isDragging){
+position += speed
+}
+
+const max = carousel.scrollWidth / 2
+
+if(position > max){
+position -= max
+}
+
+if(position < 0){
+position += max
+}
+
+carousel.style.transform = `translateX(-${position}px)`
+
+requestAnimationFrame(animateCarousel)
+
+}
+
+animateCarousel()
+
 
 
