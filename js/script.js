@@ -133,6 +133,33 @@ const rect = wrapper.getBoundingClientRect()
 const x = e.touches[0].clientX - rect.left
 const center = rect.width / 2
 
+/* SUPORTE TOUCH PARA CELULAR */
+
+let touchStartX = 0
+
+wrapper.addEventListener("touchstart",(e)=>{
+
+const rect = wrapper.getBoundingClientRect()
+touchStartX = e.touches[0].clientX - rect.left
+
+})
+
+wrapper.addEventListener("touchmove",(e)=>{
+
+const rect = wrapper.getBoundingClientRect()
+const x = e.touches[0].clientX - rect.left
+const center = rect.width / 2
+
+speed = (x - center) * 0.02
+
+})
+
+wrapper.addEventListener("touchend",()=>{
+
+speed = 0
+
+})
+  
 // controle de direção e velocidade
 speed = (x - center) * 0.02
 
@@ -173,3 +200,4 @@ closeModal()
 }
 
 })
+
